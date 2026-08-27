@@ -18,14 +18,19 @@
       --panel-strong: rgba(255,255,255,.94);
       --text: #191715;
       --muted: #746f69;
-      --line: rgba(255,255,255,.42);
       --shadow: 0 18px 50px rgba(0,0,0,.16);
       --radius: 24px;
       --safe-bottom: max(18px, env(safe-area-inset-bottom));
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -44,7 +49,13 @@
       inset: 0;
       pointer-events: none;
       z-index: -1;
-      background: linear-gradient(120deg, rgba(255,255,255,.025), transparent 28%, rgba(255,255,255,.02));
+      background:
+        linear-gradient(
+          120deg,
+          rgba(255,255,255,.025),
+          transparent 28%,
+          rgba(255,255,255,.02)
+        );
     }
 
     .page {
@@ -56,6 +67,10 @@
       position: relative;
       overflow: hidden;
     }
+
+    /* =========================
+       主視覺
+    ========================== */
 
     .hero {
       position: relative;
@@ -79,8 +94,19 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.08) 40%, rgba(0,0,0,.48) 78%, rgba(18,16,14,.90) 100%),
-        linear-gradient(90deg, rgba(0,0,0,.10), transparent 46%, rgba(0,0,0,.08));
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,.10) 0%,
+          rgba(0,0,0,.08) 40%,
+          rgba(0,0,0,.48) 78%,
+          rgba(18,16,14,.90) 100%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,.10),
+          transparent 46%,
+          rgba(0,0,0,.08)
+        );
     }
 
     .hero-copy {
@@ -122,13 +148,22 @@
       opacity: .95;
     }
 
+    /* =========================
+       內容區
+    ========================== */
+
     .content {
       position: relative;
       z-index: 3;
       margin-top: -8px;
       padding: 30px 18px 46px;
       background:
-        linear-gradient(180deg, #ece8e2 0%, #f3efe9 50%, #ebe6df 100%);
+        linear-gradient(
+          180deg,
+          #ece8e2 0%,
+          #f3efe9 50%,
+          #ebe6df 100%
+        );
     }
 
     .intro {
@@ -147,29 +182,62 @@
       margin: 0 auto;
     }
 
+    /* =========================
+       卡片
+    ========================== */
+
     .card {
       display: grid;
       grid-template-columns: 68px 1fr auto;
       align-items: center;
       gap: 14px;
+
       min-height: 92px;
       padding: 12px 16px 12px 12px;
+
       border: 1px solid rgba(255,255,255,.78);
       border-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.74));
-      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.8);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.94),
+          rgba(255,255,255,.74)
+        );
+
+      box-shadow:
+        var(--shadow),
+        inset 0 1px 0 rgba(255,255,255,.8);
+
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
+
       text-decoration: none;
       color: inherit;
-      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        background .22s ease;
+
       animation: rise .65s ease both;
     }
 
-    .card:nth-child(2) { animation-delay: .05s; }
-    .card:nth-child(3) { animation-delay: .10s; }
-    .card:nth-child(4) { animation-delay: .15s; }
-    .card:nth-child(5) { animation-delay: .20s; }
+    .card:nth-child(2) {
+      animation-delay: .05s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: .10s;
+    }
+
+    .card:nth-child(4) {
+      animation-delay: .15s;
+    }
+
+    .card:nth-child(5) {
+      animation-delay: .20s;
+    }
 
     .card:hover {
       transform: translateY(-3px);
@@ -177,7 +245,9 @@
       background: var(--panel-strong);
     }
 
-    .card:active { transform: scale(.985); }
+    .card:active {
+      transform: scale(.985);
+    }
 
     .icon-wrap {
       width: 68px;
@@ -198,9 +268,15 @@
       display: block;
     }
 
-    .icon-wrap.contain img { object-fit: contain; padding: 3px; }
+    .icon-wrap.contain img {
+      object-fit: contain;
+      padding: 3px;
+    }
 
-    .card-copy { min-width: 0; }
+    .card-copy {
+      min-width: 0;
+    }
+
     .card-title {
       font-family: "Noto Serif TC", serif;
       font-weight: 900;
@@ -238,19 +314,28 @@
       letter-spacing: .14em;
     }
 
+    /* =========================
+       底部固定 LINE
+    ========================== */
+
     .sticky {
       position: fixed;
       left: 50%;
       bottom: var(--safe-bottom);
       transform: translateX(-50%);
+
       width: min(calc(100% - 28px), 650px);
       z-index: 20;
+
       padding: 8px;
       border-radius: 22px;
+
       background: rgba(20,18,16,.62);
       box-shadow: 0 16px 50px rgba(0,0,0,.34);
+
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
+
       border: 1px solid rgba(255,255,255,.16);
     }
 
@@ -259,19 +344,32 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+
       min-height: 58px;
       border-radius: 16px;
+
       text-decoration: none;
       color: #171411;
-      background: linear-gradient(180deg, #fff 0%, #f2eee8 100%);
+
+      background:
+        linear-gradient(
+          180deg,
+          #fff 0%,
+          #f2eee8 100%
+        );
+
       font-family: "Noto Serif TC", serif;
       font-weight: 900;
       letter-spacing: .10em;
+
       box-shadow: inset 0 1px 0 #fff;
+
       transition: transform .18s ease;
     }
 
-    .sticky a:active { transform: scale(.985); }
+    .sticky a:active {
+      transform: scale(.985);
+    }
 
     .line-dot {
       width: 10px;
@@ -281,17 +379,48 @@
       box-shadow: 0 0 0 5px rgba(6,199,85,.12);
     }
 
+    /* =========================
+       動畫
+    ========================== */
+
     @keyframes rise {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
+    /* =========================
+       手機版
+    ========================== */
+
     @media (max-width: 520px) {
-      .page { width: 100%; }
-      .hero { height: 69vh; min-height: 520px; }
-      .hero img { object-position: center 34%; }
-      .hero-copy { bottom: 34px; }
-      .content { padding: 26px 14px 38px; }
+      .page {
+        width: 100%;
+      }
+
+      .hero {
+        height: 69vh;
+        min-height: 520px;
+      }
+
+      .hero img {
+        object-position: center 34%;
+      }
+
+      .hero-copy {
+        bottom: 34px;
+      }
+
+      .content {
+        padding: 26px 14px 38px;
+      }
+
       .card {
         grid-template-columns: 62px 1fr auto;
         min-height: 84px;
@@ -299,14 +428,32 @@
         border-radius: 21px;
         gap: 12px;
       }
-      .icon-wrap { width: 62px; height: 62px; border-radius: 16px; }
-      .card-title { font-size: 17px; }
-      .card-note { font-size: 11.5px; }
-      .arrow { width: 30px; height: 30px; font-size: 16px; }
+
+      .icon-wrap {
+        width: 62px;
+        height: 62px;
+        border-radius: 16px;
+      }
+
+      .card-title {
+        font-size: 17px;
+      }
+
+      .card-note {
+        font-size: 11.5px;
+      }
+
+      .arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
@@ -315,76 +462,384 @@
     }
   </style>
 </head>
+
 <body>
+
   <main class="page">
+
+    <!-- 主視覺 -->
     <section class="hero" aria-label="嫣ღ 個人品牌首頁主視覺">
-      <img src="assets/hero.jpg" alt="嫣ღ 個人品牌主視覺" />
+
+      <img
+        src="assets/hero.jpg"
+        alt="嫣ღ 個人品牌主視覺"
+      />
+
       <div class="hero-copy">
-        <div class="eyebrow">PERSONAL BRAND</div>
+        <div class="eyebrow">
+          PERSONAL BRAND
+        </div>
+
         <h1>嫣ღ</h1>
-        <div class="subtitle">個人品牌｜社群經營｜小賣場</div>
+
+        <div class="subtitle">
+          個人品牌｜社群經營｜小賣場
+        </div>
       </div>
+
     </section>
 
+    <!-- 連結區 -->
     <section class="content">
-      <div class="intro">SELECT · CONNECT · EXPLORE</div>
+
+      <div class="intro">
+        SELECT · CONNECT · EXPLORE
+      </div>
 
       <div class="links">
-        <a class="card" href="https://www.instagram.com/8noir__?igsi=dXZteXl6aTl3OHh4" target="_blank" rel="noopener noreferrer">
-          <div class="icon-wrap"><img src="assets/instagram.png" alt="Instagram" /></div>
-          <div class="card-copy">
-            <div class="card-title">Instagram</div>
-            <div class="card-note">FOLLOW MY DAILY</div>
+
+        <!-- Instagram -->
+        <a
+          class="card"
+          href="https://www.instagram.com/8noir__?igsi=dXZteXl6aTl3OHh4"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="icon-wrap">
+            <img
+              src="assets/instagram.png"
+              alt="Instagram"
+            />
           </div>
-          <div class="arrow">↗</div>
+
+          <div class="card-copy">
+            <div class="card-title">
+              Instagram
+            </div>
+
+            <div class="card-note">
+              FOLLOW MY DAILY
+            </div>
+          </div>
+
+          <div class="arrow">
+            ↗
+          </div>
+
         </a>
 
-        <a class="card" href="https://www.threads.com/@8noir__?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">
-          <div class="icon-wrap"><img src="assets/threads.png" alt="Threads" /></div>
-          <div class="card-copy">
-            <div class="card-title">Threads</div>
-            <div class="card-note">FOLLOW MY THREADS</div>
+
+        <!-- Threads -->
+        <a
+          class="card"
+          href="https://www.threads.com/@8noir__?igshid=NTc4MTIwNjQ2YQ=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="icon-wrap">
+            <img
+              src="assets/threads.png"
+              alt="Threads"
+            />
           </div>
-          <div class="arrow">↗</div>
+
+          <div class="card-copy">
+            <div class="card-title">
+              Threads
+            </div>
+
+            <div class="card-note">
+              FOLLOW MY THREADS
+            </div>
+          </div>
+
+          <div class="arrow">
+            ↗
+          </div>
+
         </a>
 
-        <a class="card" href="https://tinyurl.com/27ubvo75" target="_blank" rel="noopener noreferrer">
-          <div class="icon-wrap contain"><img src="assets/candy.png" alt="糖果店" /></div>
-          <div class="card-copy">
-            <div class="card-title">糖果店</div>
-            <div class="card-note">註冊好通知小編為您開通</div>
+
+        <!-- 糖果店 -->
+        <a
+          class="card"
+          href="https://tinyurl.com/27ubvo75"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="icon-wrap contain">
+            <img
+              src="assets/candy.png"
+              alt="糖果店"
+            />
           </div>
-          <div class="arrow">↗</div>
+
+          <div class="card-copy">
+
+            <div class="card-title">
+              糖果店
+            </div>
+
+            <div class="card-note">
+              註冊好通知小編為您開通
+            </div>
+
+          </div>
+
+          <div class="arrow">
+            ↗
+          </div>
+
         </a>
 
-        <a class="card" href="https://myship.7-11.com.tw/general/detail/GM2607112612894" target="_blank" rel="noopener noreferrer">
-          <div class="icon-wrap"><img src="assets/myship.png" alt="賣貨便" /></div>
-          <div class="card-copy">
-            <div class="card-title">賣貨便</div>
-            <div class="card-note">前往我的線上賣場</div>
+
+        <!-- 賣貨便 -->
+        <a
+          class="card"
+          href="https://myship.7-11.com.tw/general/detail/GM2607112612894"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="icon-wrap">
+            <img
+              src="assets/myship.png"
+              alt="賣貨便"
+            />
           </div>
-          <div class="arrow">↗</div>
+
+          <div class="card-copy">
+
+            <div class="card-title">
+              賣貨便
+            </div>
+
+            <div class="card-note">
+              前往我的線上賣場
+            </div>
+
+          </div>
+
+          <div class="arrow">
+            ↗
+          </div>
+
         </a>
 
-        <a class="card" href="https://lin.ee/n2o7iSQ" target="_blank" rel="noopener noreferrer">
-          <div class="icon-wrap"><img src="assets/entertainment.png" alt="娛樂城" /></div>
-          <div class="card-copy">
-            <div class="card-title">娛樂城</div>
-            <div class="card-note">首儲 2 贈 1｜3 贈 2｜5 贈 3</div>
+
+        <!-- 娛樂城 -->
+        <a
+          class="card"
+          href="https://lin.ee/n2o7iSQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="icon-wrap">
+            <img
+              src="assets/entertainment.png"
+              alt="娛樂城"
+            />
           </div>
-          <div class="arrow">↗</div>
+
+          <div class="card-copy">
+
+            <div class="card-title">
+              娛樂城
+            </div>
+
+            <div class="card-note">
+              首儲 2 贈 1｜3 贈 2｜5 贈 3
+            </div>
+
+          </div>
+
+          <div class="arrow">
+            ↗
+          </div>
+
         </a>
+
       </div>
 
-      <div class="footer-note">© 2026 嫣ღ · ALL RIGHTS RESERVED</div>
+      <div class="footer-note">
+        © 2026 嫣ღ · ALL RIGHTS RESERVED
+      </div>
+
     </section>
+
   </main>
 
+
+  <!-- 底部固定聯繫小編 -->
   <div class="sticky">
-    <a href="https://lin.ee/xSzHgfY" target="_blank" rel="noopener noreferrer" aria-label="LINE 聯繫小編">
+
+    <a
+      href="https://lin.ee/xSzHgfY"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="LINE 聯繫小編"
+    >
+
       <span class="line-dot"></span>
-      <span>聯繫小編</span>
+
+      <span>
+        聯繫小編
+      </span>
+
     </a>
+
   </div>
+
+
+  <!--
+    背景音樂
+    不顯示播放器
+    自動循環
+  -->
+  <audio
+    id="bgMusic"
+    preload="auto"
+    loop
+    playsinline
+  >
+    <source
+      src="assets/soundoffreedom-lo-fi-rampb-vibe-405852.mp3"
+      type="audio/mpeg"
+    >
+  </audio>
+
+
+  <script>
+    (() => {
+
+      const music = document.getElementById("bgMusic");
+
+      if (!music) return;
+
+      /*
+        音量
+        0.28 = 28%
+      */
+      music.volume = 0.28;
+
+
+      /*
+        嘗試播放
+      */
+      const tryPlay = () => {
+
+        const playPromise = music.play();
+
+        if (
+          playPromise &&
+          typeof playPromise.catch === "function"
+        ) {
+
+          playPromise.catch(() => {
+            /*
+              Safari / Chrome
+              如果禁止自動播放，
+              這裡不顯示任何錯誤。
+            */
+          });
+
+        }
+
+      };
+
+
+      /*
+        網頁載入完成後
+        立即嘗試播放
+      */
+      window.addEventListener(
+        "load",
+        tryPlay,
+        { once: true }
+      );
+
+
+      /*
+        部分瀏覽器會禁止
+        「完全沒有使用者操作」
+        的有聲音自動播放。
+
+        如果第一次自動播放被擋，
+        使用者第一次點擊、
+        觸碰或滑動頁面時，
+        就會立即開始播放。
+
+        畫面不會出現音樂按鈕。
+      */
+      const unlockMusic = () => {
+
+        tryPlay();
+
+        [
+          "touchstart",
+          "pointerdown",
+          "click",
+          "keydown"
+        ].forEach((eventName) => {
+
+          document.removeEventListener(
+            eventName,
+            unlockMusic,
+            true
+          );
+
+        });
+
+      };
+
+
+      [
+        "touchstart",
+        "pointerdown",
+        "click",
+        "keydown"
+      ].forEach((eventName) => {
+
+        document.addEventListener(
+          eventName,
+          unlockMusic,
+          {
+            capture: true,
+            once: true
+          }
+        );
+
+      });
+
+
+      /*
+        從 Instagram / LINE /
+        其他 App 回到網站時，
+        如果音樂被暫停，
+        再嘗試恢復播放。
+      */
+      document.addEventListener(
+        "visibilitychange",
+        () => {
+
+          if (
+            !document.hidden &&
+            music.paused
+          ) {
+
+            tryPlay();
+
+          }
+
+        }
+      );
+
+    })();
+  </script>
+
 </body>
 </html>
