@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#11100f" />
+  <meta name="description" content="嫣ღ｜個人品牌・社群經營・小賣場" />
+  <title>嫣ღ｜個人品牌・社群經營・小賣場</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;800;900&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f0e0d;
+      --panel: rgba(255,255,255,.82);
+      --panel-strong: rgba(255,255,255,.94);
+      --text: #191715;
+      --muted: #746f69;
+      --line: rgba(255,255,255,.42);
+      --shadow: 0 18px 50px rgba(0,0,0,.16);
+      --radius: 24px;
+      --safe-bottom: max(18px, env(safe-area-inset-bottom));
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255,255,255,.08), transparent 34%),
+        linear-gradient(180deg, #151311 0%, #0d0c0b 100%);
+      font-family: "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+      padding-bottom: 112px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background: linear-gradient(120deg, rgba(255,255,255,.025), transparent 28%, rgba(255,255,255,.02));
+    }
+
+    .page {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      min-height: 100vh;
+      background: #ece8e2;
+      box-shadow: 0 0 70px rgba(0,0,0,.28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      height: clamp(520px, 76vh, 760px);
+      min-height: 520px;
+      overflow: hidden;
+      background: #171512;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 32%;
+      transform: scale(1.015);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.08) 40%, rgba(0,0,0,.48) 78%, rgba(18,16,14,.90) 100%),
+        linear-gradient(90deg, rgba(0,0,0,.10), transparent 46%, rgba(0,0,0,.08));
+    }
+
+    .hero-copy {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      bottom: 42px;
+      text-align: center;
+      color: #fff;
+      padding: 0 24px;
+      animation: rise .8s ease both;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .34em;
+      opacity: .82;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Noto Serif TC", serif;
+      font-weight: 900;
+      font-size: clamp(38px, 8vw, 60px);
+      line-height: 1;
+      letter-spacing: .08em;
+      text-shadow: 0 5px 20px rgba(0,0,0,.22);
+    }
+
+    .subtitle {
+      margin-top: 13px;
+      font-family: "Noto Serif TC", serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      opacity: .95;
+    }
+
+    .content {
+      position: relative;
+      z-index: 3;
+      margin-top: -8px;
+      padding: 30px 18px 46px;
+      background:
+        linear-gradient(180deg, #ece8e2 0%, #f3efe9 50%, #ebe6df 100%);
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 540px;
+      margin: 0 auto 20px;
+      color: #6d665f;
+      font-size: 12px;
+      letter-spacing: .16em;
+    }
+
+    .links {
+      display: grid;
+      gap: 14px;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 68px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      min-height: 92px;
+      padding: 12px 16px 12px 12px;
+      border: 1px solid rgba(255,255,255,.78);
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.74));
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.8);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      text-decoration: none;
+      color: inherit;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+      animation: rise .65s ease both;
+    }
+
+    .card:nth-child(2) { animation-delay: .05s; }
+    .card:nth-child(3) { animation-delay: .10s; }
+    .card:nth-child(4) { animation-delay: .15s; }
+    .card:nth-child(5) { animation-delay: .20s; }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 60px rgba(0,0,0,.20);
+      background: var(--panel-strong);
+    }
+
+    .card:active { transform: scale(.985); }
+
+    .icon-wrap {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 7px 18px rgba(0,0,0,.10);
+      flex-shrink: 0;
+    }
+
+    .icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .icon-wrap.contain img { object-fit: contain; padding: 3px; }
+
+    .card-copy { min-width: 0; }
+    .card-title {
+      font-family: "Noto Serif TC", serif;
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: .04em;
+      line-height: 1.25;
+      margin-bottom: 5px;
+    }
+
+    .card-note {
+      font-size: 12px;
+      line-height: 1.55;
+      color: var(--muted);
+      letter-spacing: .025em;
+    }
+
+    .arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.08);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      color: #4f4a45;
+      background: rgba(255,255,255,.58);
+      flex-shrink: 0;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 26px;
+      color: #8c857e;
+      font-size: 10px;
+      letter-spacing: .14em;
+    }
+
+    .sticky {
+      position: fixed;
+      left: 50%;
+      bottom: var(--safe-bottom);
+      transform: translateX(-50%);
+      width: min(calc(100% - 28px), 650px);
+      z-index: 20;
+      padding: 8px;
+      border-radius: 22px;
+      background: rgba(20,18,16,.62);
+      box-shadow: 0 16px 50px rgba(0,0,0,.34);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,.16);
+    }
+
+    .sticky a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 58px;
+      border-radius: 16px;
+      text-decoration: none;
+      color: #171411;
+      background: linear-gradient(180deg, #fff 0%, #f2eee8 100%);
+      font-family: "Noto Serif TC", serif;
+      font-weight: 900;
+      letter-spacing: .10em;
+      box-shadow: inset 0 1px 0 #fff;
+      transition: transform .18s ease;
+    }
+
+    .sticky a:active { transform: scale(.985); }
+
+    .line-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #06c755;
+      box-shadow: 0 0 0 5px rgba(6,199,85,.12);
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 520px) {
+      .page { width: 100%; }
+      .hero { height: 69vh; min-height: 520px; }
+      .hero img { object-position: center 34%; }
+      .hero-copy { bottom: 34px; }
+      .content { padding: 26px 14px 38px; }
+      .card {
+        grid-template-columns: 62px 1fr auto;
+        min-height: 84px;
+        padding: 11px 13px 11px 11px;
+        border-radius: 21px;
+        gap: 12px;
+      }
+      .icon-wrap { width: 62px; height: 62px; border-radius: 16px; }
+      .card-title { font-size: 17px; }
+      .card-note { font-size: 11.5px; }
+      .arrow { width: 30px; height: 30px; font-size: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="嫣ღ 個人品牌首頁主視覺">
+      <img src="assets/hero.jpg" alt="嫣ღ 個人品牌主視覺" />
+      <div class="hero-copy">
+        <div class="eyebrow">PERSONAL BRAND</div>
+        <h1>嫣ღ</h1>
+        <div class="subtitle">個人品牌｜社群經營｜小賣場</div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="intro">SELECT · CONNECT · EXPLORE</div>
+
+      <div class="links">
+        <a class="card" href="https://www.instagram.com/8noir__?igsi=dXZteXl6aTl3OHh4" target="_blank" rel="noopener noreferrer">
+          <div class="icon-wrap"><img src="assets/instagram.png" alt="Instagram" /></div>
+          <div class="card-copy">
+            <div class="card-title">Instagram</div>
+            <div class="card-note">FOLLOW MY DAILY</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+
+        <a class="card" href="https://www.threads.com/@8noir__?igshid=NTc4MTIwNjQ2YQ==" target="_blank" rel="noopener noreferrer">
+          <div class="icon-wrap"><img src="assets/threads.png" alt="Threads" /></div>
+          <div class="card-copy">
+            <div class="card-title">Threads</div>
+            <div class="card-note">FOLLOW MY THREADS</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+
+        <a class="card" href="https://tinyurl.com/27ubvo75" target="_blank" rel="noopener noreferrer">
+          <div class="icon-wrap contain"><img src="assets/candy.png" alt="糖果店" /></div>
+          <div class="card-copy">
+            <div class="card-title">糖果店</div>
+            <div class="card-note">註冊好通知小編為您開通</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+
+        <a class="card" href="https://myship.7-11.com.tw/general/detail/GM2607112612894" target="_blank" rel="noopener noreferrer">
+          <div class="icon-wrap"><img src="assets/myship.png" alt="賣貨便" /></div>
+          <div class="card-copy">
+            <div class="card-title">賣貨便</div>
+            <div class="card-note">前往我的線上賣場</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+
+        <a class="card" href="https://lin.ee/n2o7iSQ" target="_blank" rel="noopener noreferrer">
+          <div class="icon-wrap"><img src="assets/entertainment.png" alt="娛樂城" /></div>
+          <div class="card-copy">
+            <div class="card-title">娛樂城</div>
+            <div class="card-note">首儲 2 贈 1｜3 贈 2｜5 贈 3</div>
+          </div>
+          <div class="arrow">↗</div>
+        </a>
+      </div>
+
+      <div class="footer-note">© 2026 嫣ღ · ALL RIGHTS RESERVED</div>
+    </section>
+  </main>
+
+  <div class="sticky">
+    <a href="https://lin.ee/xSzHgfY" target="_blank" rel="noopener noreferrer" aria-label="LINE 聯繫小編">
+      <span class="line-dot"></span>
+      <span>聯繫小編</span>
+    </a>
+  </div>
+</body>
+</html>
